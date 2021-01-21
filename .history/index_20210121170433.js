@@ -1,16 +1,18 @@
 const chunkArrayInGroups = function(arr, size){
-    let arrayLocal=[]
-    let arrayTotal=[]
-
+    acumulatorSize= 0
+    arrayLocal=[]
+    arrayTotal=[]
+    
     for (let index = 0; index < arr.length; index++) {
-        arrayLocal.push(arr[index])       
-        if(arrayLocal.length == size || index == arr.length-1){
+
+        arrayLocal.push(arr[index])
+        acumulatorSize++
+        if(acumulatorSize == size || index == arr.length){
             arrayTotal.push(arrayLocal)
             arrayLocal = []
         }        
     }
 
-    return arrayTotal
 }
 
 module.exports = chunkArrayInGroups
